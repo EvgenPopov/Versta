@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Order>
+
+@{
+    ViewBag.Title = "Список заказов";
+    Layout = "_AdminLayout";
+}
+
+@if (Model.Count() > 0)
+{
+    <table class="table table-bordered">
+        <tr>
+            <th>Номер заказа</th>
+            <th>Адресс Отправк</th>
+            <th>Город Отправки</th>
+            <th>Адресс доставки</th>
+            <th>Город доставки</th>
+            <th>Вес груза</th>
+            <th>Дата забора груза</th>
+        </tr>
+        @foreach (Order o in Model)
+        {
+            <tr>
+                <td>@o.OrderNumber</td>
+                <td>@o.SenderAdress</td>
+                <td>@o.SenderCity</td>
+                <td>@o.RecipientAdress</td>
+                <td>@o.RecipientCity</td>
+                <td>@o.CargoWeight кг</td>
+                <td>@o.PickUpDate</td>
+            </tr>
+        }
+
+    </table>
+}
+else
+{ <h3>Список нарядов пуст</h3> 
+}
+
